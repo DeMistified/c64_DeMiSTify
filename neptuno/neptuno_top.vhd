@@ -127,12 +127,10 @@ architecture RTL of neptuno_top is
 	signal joyd : std_logic_vector(7 downto 0);
 
 	-- DAC AUDIO
-	signal dac_l : signed(15 downto 0);
-	signal dac_r : signed(15 downto 0);
+	signal dac_l : std_logic_vector(15 downto 0);
+	signal dac_r : std_logic_vector(15 downto 0);
     --signal dac_midi_l : signed(15 downto 0);
 	--signal dac_midi_r : signed(15 downto 0);
-	--signal dac_l: std_logic_vector(15 downto 0);
-	--signal dac_r: std_logic_vector(15 downto 0);
 	--signal dac_l_s: signed(15 downto 0);
 	--signal dac_r_s: signed(15 downto 0);
 
@@ -262,8 +260,8 @@ begin
 			dac_SCLK  => I2S_BCLK,
 			dac_SDIN  => I2S_DATA,
 			dac_LRCK  => I2S_LRCLK,
-			L_data    => std_logic_vector(dac_l),
-			R_data    => std_logic_vector(dac_r)
+			L_data    => dac_l,
+			R_data    => dac_r
 		--	L_data    => std_logic_vector(dac_l_s),
 		--	R_data    => std_logic_vector(dac_r_s)
 		);
@@ -307,11 +305,11 @@ begin
 			VGA_B      => vga_blue(7 downto 2),
 
 			--AUDIO
-			-- DAC_L   => dac_l,
-			-- DAC_R   => dac_r,
 			AUDIO_L => SIGMA_L,
 			AUDIO_R => SIGMA_R,
-
+			DAC_L   => dac_l,
+			DAC_R   => dac_r,
+			
 			UART_RX => '0',
 			UART_TX => open
 		);

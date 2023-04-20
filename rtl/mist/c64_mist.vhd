@@ -73,6 +73,9 @@ entity c64_mist is port
    SPI_SS4    : in    std_logic;
    CONF_DATA0 : in    std_logic;
 
+   DAC_L      : out std_logic_vector(15 downto 0);
+   DAC_R      : out std_logic_vector(15 downto 0);
+
    UART_RX    : in    std_logic;
    UART_TX    : out   std_logic
 );
@@ -1208,6 +1211,9 @@ begin
 		aleft => AUDIO_L,
 		aright => AUDIO_R
 	);
+
+	DAC_L <= audio_data_l_mix(17 downto 2);
+	DAC_R <= audio_data_r(17 downto 2);
 
 	fpga64 : entity work.fpga64_sid_iec
 	port map(

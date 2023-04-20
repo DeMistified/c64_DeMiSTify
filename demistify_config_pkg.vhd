@@ -68,8 +68,8 @@ constant demistify_serialdebug : std_logic := '0';
 			AUDIO_R  : out std_logic;
 			
 			--D AUDIO 
-		--	DAC_L       : out signed(12 downto 0);
-		--	DAC_R       : out signed(12 downto 0);
+			DAC_L       : out std_logic_vector(15 downto 0);
+			DAC_R       : out std_logic_vector(15 downto 0);
 			
 			UART_RX			:	IN STD_LOGIC := '1';
 			UART_TX			:	OUT STD_LOGIC
