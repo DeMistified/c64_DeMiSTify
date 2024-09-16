@@ -12,6 +12,9 @@ Early tests
 	Sound OK
 	TAP OK
 	D64 OK
-	CRT KO
+	CRT OK
 	G64 not tested
-	PRG not tested
+	PRG OK
+	15KHZ Video OK (add a file named '15KHZ.CFG' at SD root)
+	
+	Swap keyboard cursor keys between JOY1/JOY2 with ctrl-F1
